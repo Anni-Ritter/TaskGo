@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 )
 
 func main() {
@@ -41,4 +42,35 @@ func main() {
 	} else {
 		fmt.Println("Введено некорректное число")
 	}
+
+	//task_4
+	var str string
+	var newStr string
+	fmt.Println("Введите строку не больше 1000 символов: ")
+	fmt.Scanln(&str)
+	if len(str) > 1000 {
+		fmt.Println("Не больше 1000 символов")
+	} else {
+		for i := 0; i < len(str); i++ {
+			if i != 0 {
+				newStr += "*"
+			}
+			newStr += string(str[i])
+		}
+		fmt.Println(newStr)
+	}
+
+	//task_5
+	var number int
+	fmt.Println("Введите число:")
+	fmt.Scanln(&number)
+	strNum := strconv.Itoa(number)
+	newNum := ""
+	for i := 0; i < len(strNum); i++ {
+		digit, _ := strconv.Atoi(string(strNum[i]))
+		square := digit * digit
+		newNum += strconv.Itoa(square)
+	}
+	results, _ := strconv.Atoi(newNum)
+	fmt.Println(results)
 }
